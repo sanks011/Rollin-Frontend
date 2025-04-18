@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 20 14.3% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+    --primary: 47.9 95.8% 53.1%;
+    --primary-foreground: 26 83.3% 14.1%;
+    --secondary: 60 4.8% 95.9%;
+    --secondary-foreground: 24 9.8% 10%;
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+    --accent: 60 4.8% 95.9%;
+    --accent-foreground: 24 9.8% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --input: 20 5.9% 90%;
+    --ring: 20 14.3% 4.1%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    -webkit-text-stroke: 0;
+    text-stroke: 0;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+ 
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+    font-weight: 900;
+    -webkit-text-stroke: 0;
+    text-stroke: 0;
+    text-shadow: none;
+  }
+  button {
+    font-weight: 800;
+    -webkit-text-stroke: 0;
+    text-stroke: 0;
+  }
+
+  /* Ensure all text elements are properly rendered */
+  p, span, a, div, button {
+    -webkit-text-stroke: 0;
+    text-stroke: 0;
+    text-shadow: none;
+  }
+}
+
+/* Fix for font loading - update path and add fallback fonts */
+@font-face {
+  font-family: "Bakery";
+  src: url("../public/fonts/DK\ Woolwich.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  /* Fallback to system fonts if Bakery font fails to load */
+  font-family: "Bakery", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* Ensure no text stroke */
+  -webkit-text-stroke: 0;
+  text-stroke: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/* Enhanced styling for buttons */
+.btn-primary {
+  @apply bg-yellow-300 rounded-full px-4 py-2 text-sm font-bold uppercase hover:bg-yellow-400 transition-colors;
+}
+
+/* Card styling */
+.bakery-card {
+  @apply rounded-3xl overflow-hidden transition-all duration-300;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Additional class that can be applied to any element with text rendering issues */
+.clean-text {
+  -webkit-text-stroke: 0 !important;
+  text-stroke: 0 !important;
+  text-shadow: none !important;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Badge styles for TASTY, FRESH, CRUNCHY labels */
+.badge {
+  @apply text-xs font-bold px-2 py-1 rounded clean-text;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.badge-tasty {
+  @apply bg-green-600 text-white;
+}
+
+.badge-fresh {
+  @apply bg-blue-500 text-white;
+}
+
+.badge-crunchy {
+  @apply bg-orange-500 text-white;
+}
+
+.badge-combo {
+  @apply bg-brown text-white;
+}
+
+/* Product card with "coming out" image effect */
+.product-card {
+  @apply relative rounded-3xl overflow-hidden;
+  padding-top: 1.5rem;
+}
+
+.product-card-inner {
+  @apply bg-white rounded-3xl overflow-hidden relative p-4;
+  height: 100%;
+}
+
+/* Image container for "coming out" effect */
+.product-image-container {
+  position: relative;
+  margin-top: -3rem;
+  margin-bottom: 1rem;
+  z-index: 1;
+}
+
+/* The actual image that extends beyond the container */
+.product-image-overflow {
+  transform: translateY(-15%);
+  width: 100%;
+}
+
+/* Style for heading with bold stroke-free text */
+.heading-big {
+  @apply text-[#3a1a0f] font-black tracking-tight leading-tight clean-text;
+  letter-spacing: -0.03em;
+  font-size: 3.75rem;
+}
+
+.heading-medium {
+  @apply text-[#3a1a0f] font-black tracking-tight leading-tight clean-text;
+  letter-spacing: -0.02em;
+  font-size: 2rem;
+}
+
+/* Improved button styling to match reference */
+.button-primary {
+  @apply bg-yellow-300 rounded-full px-6 py-3 text-sm font-extrabold uppercase hover:bg-yellow-400 transition-colors text-[#3a1a0f] clean-text;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.33%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 15s linear infinite;
+  width: 300%;
+}
