@@ -4,7 +4,7 @@ import { products, getProductById } from '../data/products.data';
 
 // Create base API instance
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api', // Change this to match your backend URL
+  baseURL: 'https://rollin-backend.onrender.com/api', // Updated to deployed backend URL
   headers: {
     'Content-Type': 'application/json'
   },

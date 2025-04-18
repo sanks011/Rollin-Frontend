@@ -52,7 +52,7 @@ const ApiTest = () => {
           <div className="mt-3 text-sm">
             <p>Please make sure:</p>
             <ul className="list-disc pl-5 mt-1">
-              <li>Backend server is running at http://localhost:5000</li>
+              <li>Backend server is running at https://rollin-backend.onrender.com</li>
               <li>CORS is properly configured on the server</li>
               <li>API endpoints are implemented correctly</li>
             </ul>
